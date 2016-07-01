@@ -127,7 +127,7 @@ var tmpl = template.Must(template.New("main").Parse(`<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta name="go-import" content="{{.ImportRoot}} {{.VCS}} {{.VCSRoot}}">
+<meta name="go-import" content="{{.VCSRoot}} {{.VCS}} {{.VCSRoot}}">
 <meta http-equiv="refresh" content="0; url=https://godoc.org/{{.ImportRoot}}{{.Suffix}}">
 </head>
 <body>
