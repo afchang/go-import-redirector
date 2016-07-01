@@ -174,7 +174,7 @@ func redirect(w http.ResponseWriter, req *http.Request) {
 	}
 	d := &data{
 		ImportRoot: importRoot,
-		ModifiedImportRoot: strings.Replace(repoRoot, "https://", "", -1)
+		ModifiedImportRoot: strings.Replace(repoRoot, "https://", "", -1),
 		VCS:        *vcs,
 		VCSRoot:    repoRoot,
 		Suffix:     suffix,
