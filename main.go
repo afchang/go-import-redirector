@@ -127,7 +127,7 @@ var tmpl = template.Must(template.New("main").Parse(`<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta name="go-import" content="{{.VCSRoot}} {{.VCS}} {{.VCSRoot}}">
+<meta name="go-import" content="{{.ModifiedImportRoot}} {{.VCS}} {{.VCSRoot}}">
 <meta http-equiv="refresh" content="0; url=https://godoc.org/{{.ImportRoot}}{{.Suffix}}">
 </head>
 <body>
@@ -138,6 +138,7 @@ Nothing to see here; <a href="https://godoc.org/{{.ImportRoot}}{{.Suffix}}">move
 
 type data struct {
 	ImportRoot string
+	ModifiedImportRoot string
 	VCS        string
 	VCSRoot    string
 	Suffix     string
@@ -173,6 +174,7 @@ func redirect(w http.ResponseWriter, req *http.Request) {
 	}
 	d := &data{
 		ImportRoot: importRoot,
+		ModifiedImportRoot: strings.Replace(repoRoot, "https://", "", -1)
 		VCS:        *vcs,
 		VCSRoot:    repoRoot,
 		Suffix:     suffix,
